@@ -1,0 +1,102 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# oTree
+*.otreezip
+db.sqlite3
+_static_root/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+tmp/
+temp/
+
+# Logs
+*.log
+
+# Data (keep structure, ignore large data files)
+*.csv
+!behavioral_scientist/data/**/codebook.csv
+*.xlsx
+*.json
+!package.json
+!package-lock.json
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+
+# Compiled files
+*.class
+*.o
+*.exe
+
+# Documentation builds (keep source)
+docs/_build/
+docs/.doctrees/
+
+# Node modules (if any JavaScript)
+node_modules/
+
+# R (if used)
+.Rhistory
+.RData
+.Rproj.user
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.out
+
+# Keep certain files
+!.gitignore
+!README.md
+!requirements.txt
+!LICENSE
