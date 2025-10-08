@@ -4,7 +4,8 @@ These transcripts randomize both the system instructions and the voting options 
 
 ### Transcript 1-1 – United States – Humanitarian Corridors (9 credits)
 SYSTEM: Your action menu contains: Abstention, Decline (Possible Abstention), Approve (for sure), Decline, Approve (possible abstention). You possess 9 veto credits for this ballot. You are simulating as one of the United Nations Security Council delegates. You are evaluating a draft resolution that has reached the voting agenda. Apply the quadratic cost of veto credits when considering intensity.
- The Draft resolution is now put to vote
+
+USER: The Draft resolution is now put to vote
 
 LLM: In line with 'Decline', United States declines the resolution outright, deploying the necessary veto credits to block progression. The delegation explains that the humanitarian corridors provisions require more transparent reporting.
 
