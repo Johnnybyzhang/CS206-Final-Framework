@@ -1,76 +1,18 @@
-# Economist - Theoretical Analysis
+# Economist – Theoretical Foundations
 
-This folder contains all theoretical analysis related to game theory, welfare economics, and fairness evaluation.
+This module captures the analytical groundwork that anchors the simulations and behavioural evidence. The centrepiece is the repeated budget-constrained second-price auction that threads through Parts 1 and 2 of the proposal.
 
-## Contents
+## Key Files
 
-### Game Theory Models
-- **Strategic Form Games**: Normal form representations, payoff matrices
-- **Extensive Form Games**: Game trees, sequential moves, subgame perfection
-- **Bayesian Games**: Incomplete information, belief systems, Bayes-Nash equilibria
+| File | Purpose |
+| --- | --- |
+| [`auction_game.md`](auction_game.md) | Defines players, strategy spaces, equilibrium benchmarks, and welfare diagnostics. |
+| [`../computational_scientist/results/auction_rounds.csv`](../computational_scientist/results/auction_rounds.csv) | Provides empirical checks for the theoretical predictions (efficiency, budgets, winner's-curse notes). |
 
-### Equilibrium Analysis
-- **Nash Equilibrium**: Pure and mixed strategy Nash equilibria
-- **Subgame Perfect Nash Equilibrium (SPNE)**: Backward induction, credible threats
-- **Bayes-Nash Equilibrium**: Equilibria under uncertainty
-- **Correlated Equilibrium**: Coordinated strategy profiles
+## Highlights
 
-### Welfare and Efficiency
-- **Pareto Efficiency**: Analysis of efficient allocations
-- **Social Welfare Functions**: Utilitarian, egalitarian, and Rawlsian approaches
-- **Fairness Concepts**: Envy-freeness, proportionality, equitability
+- Formalises the SPNE benchmark where truthful bidding survives repeated interaction when budgets are slack.
+- Identifies how bounded optimism introduces deviations consistent with the winner's curse, motivating mechanism tweaks.
+- Supplies comparative statics (budget refresh, higher common-value weight) that inform the design recommendations in the final report.
 
-## File Structure
-
-```
-economist/
-├── models/
-│   ├── strategic_games.md          # Formal game definitions
-│   ├── extensive_games.md          # Sequential game models
-│   └── bayesian_games.md           # Games with incomplete information
-├── equilibria/
-│   ├── nash_analysis.md            # Nash equilibrium calculations
-│   ├── spne_analysis.md            # Subgame perfect equilibria
-│   └── bayesian_equilibria.md      # Bayes-Nash equilibria
-├── welfare/
-│   ├── efficiency_analysis.md      # Pareto optimality analysis
-│   ├── fairness_metrics.md         # Fairness evaluation
-│   └── social_welfare.md           # Social welfare computations
-└── README.md                        # This file
-```
-
-## Methodology
-
-### Theoretical Framework
-Based on Problem Set 1 (PS1) from the budgeted-vickrey repository, we:
-1. Formalize the strategic environment
-2. Define player sets, strategy spaces, and payoff functions
-3. Identify all relevant equilibrium concepts
-4. Analyze efficiency and fairness properties
-
-### Key Questions
-- What are the equilibrium strategies in this game?
-- Is the equilibrium outcome Pareto efficient?
-- How do different equilibrium concepts compare?
-- What are the welfare implications of various strategy profiles?
-
-## Tools and References
-
-### Theoretical Resources
-- Game Theory textbooks (Osborne & Rubinstein, Fudenberg & Tirole)
-- Nobel Prize lectures on mechanism design
-- Arrow's impossibility theorem
-- Buchanan's work on institutional design
-
-### Computational Validation
-All theoretical results are validated computationally in the [`computational_scientist/`](../computational_scientist/) folder.
-
-## Integration with Other Components
-
-- **Computational Science**: Theoretical models are implemented and solved in Python
-- **Behavioral Science**: Theoretical predictions are tested against human/AI behavior
-- **Mechanism Design**: Equilibrium analysis informs mechanism design proposals
-
----
-
-*For computational implementations of these models, see [`../computational_scientist/`](../computational_scientist/)*
+For behavioural triangulation, continue to [`../behavioral_scientist/triangulation.md`](../behavioral_scientist/triangulation.md); for implementation details, see [`../computational_scientist/scripts/auction_simulator.py`](../computational_scientist/scripts/auction_simulator.py).

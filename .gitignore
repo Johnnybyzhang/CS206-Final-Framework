@@ -100,3 +100,6 @@ node_modules/
 !README.md
 !requirements.txt
 !LICENSE
+!computational_scientist/results/auction_summary.json
+!visualizations/voting/decision_summary.json
+!computational_scientist/results/auction_rounds.csv

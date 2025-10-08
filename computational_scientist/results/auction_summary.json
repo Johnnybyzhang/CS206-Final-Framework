@@ -1,0 +1,11 @@
+{
+  "rounds": 40,
+  "mean_revenue": 1.349970009927319,
+  "median_revenue": 1.0858740923341013,
+  "efficiency_rate": 0.225,
+  "winner_curse_frequency": 0.075,
+  "final_budgets": {
+    "Optimist": 0.00014193388978167576,
+    "Rational": 0.0002316665246606675
+  }
+}

@@ -39,13 +39,12 @@ This document verifies that the repository structure matches all requirements fr
 **Contents**: Template structure for all visualization categories
 
 #### ✅ docs/
-**Purpose**: Project documentation  
-**Status**: ✓ Created with comprehensive README  
+**Purpose**: Project documentation
+**Status**: ✓ Created with comprehensive README
 **Required Files**:
 - [x] README.md - Documentation guide
 - [x] FieldTripReflection.md - Complete template with all required sections
 - [x] Report_placeholder.md - Instructions for creating Report.pdf
-- [x] Poster_placeholder.md - Instructions for creating Poster.pdf
 
 ### Root README.md Required Sections (from PDF Page 4)
 
@@ -56,7 +55,7 @@ This document verifies that the repository structure matches all requirements fr
 - [x] **Statement of Growth** - Intellectual and professional development reflection
 - [x] **Table of Contents** - With clickable links
 - [x] **Navigation Instructions** - Guide for reviewers
-- [x] **Embedded Media** - Sections for poster and demo video
+- [x] **Embedded Media** - Section for demo video
 
 ### Part 1: Strategic Game Foundations (PS1)
 
@@ -113,10 +112,6 @@ Repository demonstrates:
 - [x] Part 3 requirements documented
 - [x] Supplementary materials section documented
 
-#### Symposium Poster (documented in docs/Poster_placeholder.md)
-- [x] Design specifications provided
-- [x] Required components listed
-- [x] Technical requirements specified
 
 ## Comparison with PDF Requirements
 
@@ -130,7 +125,6 @@ Repository demonstrates:
 ├── visualizations/
 ├── docs/
 │   ├── Report.pdf
-│   ├── Poster.pdf
 │   └── FieldTripReflection.md
 └── README.md
 ```
@@ -145,7 +139,6 @@ CS206-Final-Framework/
 ├── visualizations/              ✓
 ├── docs/                        ✓
 │   ├── Report.pdf              (placeholder instructions provided)
-│   ├── Poster.pdf              (placeholder instructions provided)
 │   └── FieldTripReflection.md  ✓ (complete template)
 └── README.md                    ✓ (all required sections)
 ```

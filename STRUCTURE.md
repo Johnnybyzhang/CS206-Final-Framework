@@ -108,8 +108,6 @@ CS206-Final-Framework/
 │   ├── 📄 README.md                      # Documentation guide
 │   ├── 📄 Report.pdf                     # Final research report (to be created)
 │   ├── 📄 Report_placeholder.md          # Instructions for report
-│   ├── 📄 Poster.pdf                     # Symposium poster (to be created)
-│   ├── 📄 Poster_placeholder.md          # Instructions for poster
 │   └── 📄 FieldTripReflection.md         # Field trip reflection (template)
 │
 └── 📁 orig/                               # ORIGINAL COURSE MATERIALS
@@ -156,7 +154,6 @@ Step 5: VISUALIZATION (visualizations/)
     ↓
 Step 6: DOCUMENTATION (docs/)
 ├── Write report
-├── Create poster
 └── Complete reflection
     │
     ↓
@@ -211,7 +208,7 @@ Step 7: INTEGRATION (README.md)
 - **Purpose**: Visual communication of findings
 
 ### 5. All Components ↔ Documentation
-- **Flow**: All work → Report/Poster
+- **Flow**: All work → Report
 - **Files**: Everything → docs/Report.pdf
 - **Purpose**: Synthesize complete project narrative
 
@@ -300,8 +297,7 @@ git merge feature/voting-mechanism
 3. 🔬 **Experiments**: To be completed by student
 4. 📊 **Visualizations**: To be generated from results
 5. 📄 **Report**: To be written
-6. 🖼️ **Poster**: To be designed
-7. 💭 **Reflection**: To be completed
+6. 💭 **Reflection**: To be completed
 
 ---
 
