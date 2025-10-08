@@ -1,233 +1,50 @@
-# Mechanism Design - Auction and Voting Systems
+# Mechanism Design Lab
 
-This folder contains all mechanism design proposals, including auction formats, voting rules, and institutional innovations.
+The mechanism design folder curates experiments, theoretical notes, and simulation artefacts that examine how institutions shape collective outcomes. It combines auction theory write-ups, voting rule prototypes, and United Nations Security Council (UNSC) quadratic-voting transcripts used for the Week 6 reflection exercise.
 
-## Contents
+## Repository Guide
 
-### Auction Mechanisms
-- First-price sealed-bid auctions
-- Second-price (Vickrey) auctions
-- Common-value auctions
-- Budgeted bidding mechanisms
-- Winner's curse analysis
+| Folder | Purpose |
+| --- | --- |
+| `auctions/` | Comparative analyses of first-price, Vickrey, and common-value environments, including budget-aware extensions. |
+| `voting/` | Classical and novel voting-rule briefs together with strategy notes and impossibility results. |
+| `implementations/` | Python utilities that simulate auction and voting dynamics for rapid experimentation. |
+| `case_studies/` | Field observations, Nobel insights, and applied mechanism case files that inform the broader research narrative. |
+| `llm_transcripts.md` | Randomized UNSC transcripts demonstrating quadratic voting with veto credits. |
 
-### Voting Mechanisms
-- Classical voting rules (plurality, Borda, approval)
-- Strategic voting analysis
-- Impossibility theorems (Arrow, Gibbard-Satterthwaite)
-- Novel voting mechanisms
-- Blockchain-based governance
+## Quadratic Voting Transcript Collection
 
-### Institutional Design
-- Market design applications
-- Matching mechanisms (Shapley-Roth)
-- Incentive compatibility analysis
-- Revenue equivalence theorems
+The Week 6 reflection required drafting synthetic LLM conversations that mimic UNSC delegates allocating quadratic veto credits. The refreshed transcript set now includes 75 conversations organised into five thematic rounds (`Transcript 1-1` through `Transcript 5-15`). Each transcript obeys the following design rules:
 
-## File Structure
+- **Credit endowments** cycle through {0, 1, 4, 9}, with only three delegates wielding 9 credits across the entire dataset.
+- **System prompt sections** are shuffled every time, randomising the order in which the delegate learns about their role, the voting agenda, the credit budget, the quadratic cost reminder, and the available action menu.
+- **Action menus** present the five possible decisions — `Approve (for sure)`, `Approve (possible abstention)`, `Abstention`, `Decline (Possible Abstention)`, and `Decline` — in a unique permutation for each transcript.
+- **Delegate responses** reference one of the five options while articulating how veto credits are spent or withheld and why the thematic focus demands additional safeguards.
 
-```
-mechanism_design/
-├── auctions/
-│   ├── first_price_auction.md          # First-price auction analysis
-│   ├── vickrey_auction.md              # Second-price auction design
-│   ├── common_value_auction.md         # Common-value auction experiments
-│   ├── budgeted_mechanism.md           # Budgeted bidding innovation
-│   └── winners_curse_analysis.md       # Winner's curse documentation
-├── voting/
-│   ├── classical_rules.md              # Traditional voting systems
-│   ├── strategic_voting.md             # Strategic manipulation analysis
-│   ├── novel_mechanisms.md             # Innovative voting proposals
-│   └── blockchain_governance.md        # Decentralized voting systems
-├── implementations/
-│   ├── auction_simulator.py            # Auction simulation code
-│   ├── voting_system.py                # Voting mechanism implementation
-│   └── mechanism_evaluator.py          # Evaluation framework
-├── case_studies/
-│   ├── field_trip_inspiration.md       # Real-world mechanism observations
-│   ├── nobel_insights.md               # Lessons from Nobel laureates
-│   └── practical_applications.md       # Implementation considerations
-└── README.md                            # This file
-```
+### Round-level Summary
 
-## Auction Design
+| Round | Theme | Credit Mix | Decision Mix |
+| --- | --- | --- | --- |
+| 1 | Humanitarian Corridors | 0×4 · 1×6 · 4×4 · 9×1 | Decline×2 · Decline (Possible Abstention)×3 · Abstention×3 · Approve (possible abstention)×3 · Approve (for sure)×4 |
+| 2 | Ceasefire Oversight | 0×4 · 1×6 · 4×5 | Decline×3 · Decline (Possible Abstention)×2 · Abstention×4 · Approve (possible abstention)×4 · Approve (for sure)×2 |
+| 3 | Reconstruction Mandate | 0×5 · 1×3 · 4×6 · 9×1 | Decline×2 · Decline (Possible Abstention)×4 · Abstention×4 · Approve (possible abstention)×2 · Approve (for sure)×3 |
+| 4 | Sanctions Review | 0×4 · 1×5 · 4×6 | Decline×3 · Decline (Possible Abstention)×3 · Abstention×3 · Approve (possible abstention)×5 · Approve (for sure)×1 |
+| 5 | Peacekeeping Logistics | 0×7 · 1×2 · 4×5 · 9×1 | Decline×3 · Decline (Possible Abstention)×4 · Abstention×2 · Approve (possible abstention)×1 · Approve (for sure)×5 |
 
-### Problem Set 2 Context
-Building on PS2 from the budgeted-vickrey repository, we analyze:
-- How bidders behave in different auction formats
-- The winner's curse in common-value auctions
-- Bounded rationality and overbidding
-- Mechanism design for budget constraints
+Use these aggregates to trace how the distribution of options changes from round to round, satisfying the requirement that every round presents a distinct decision spread.
 
-### Auction Formats Analyzed
+### Working with the Transcripts
 
-#### 1. First-Price Sealed-Bid Auction
-- **Rules**: Highest bidder wins, pays their bid
-- **Strategy**: Bid shading below valuation
-- **Properties**: Not truthful, revenue considerations
+1. **Qualitative comparison** – Select a round and compare how delegates with identical credits diverge in their responses depending on the action menu order.
+2. **Quantitative coding** – Label each transcript by option choice and veto expenditure to feed into subsequent behavioural or computational analyses.
+3. **Prompt engineering** – Reuse the shuffled system prompts to seed new LLM experiments; the randomised sections make it easy to test sensitivity to instruction ordering.
 
-#### 2. Second-Price (Vickrey) Auction
-- **Rules**: Highest bidder wins, pays second-highest bid
-- **Strategy**: Truthful bidding is dominant
-- **Properties**: Incentive compatible, revenue equivalence
+All transcripts live in [`llm_transcripts.md`](llm_transcripts.md). The file is self-contained so that instructors and classmates can copy transcripts directly into reflection documents without additional scripting.
 
-#### 3. Common-Value Auction
-- **Rules**: Item has same value to all, but unknown
-- **Challenge**: Winner's curse - winners systematically overpay
-- **Mitigation**: Bayesian updating, conservative bidding
+## Future Directions
 
-#### 4. Budgeted Mechanisms
-- **Constraint**: Bidders have limited budgets
-- **Innovation**: Mechanism design with budget feasibility
-- **Applications**: Ad auctions, resource allocation
+- Expand beyond the UNSC template to include other international decision bodies using the same quadratic-voting scaffold.
+- Develop automated notebooks that recompute transcript statistics and visualise credit allocations as Sankey or chord diagrams.
+- Integrate behavioural-science notes from the field trip with the synthetic transcripts to triangulate insights about strategic abstention and coalition bargaining.
 
-### Experimental Design
-
-1. **Theoretical Predictions**: Compute equilibrium bidding strategies
-2. **Human Experiments**: Test with classmates in oTree
-3. **AI Experiments**: Compare LLM bidding to human behavior
-4. **Analysis**: Identify deviations, bounded rationality patterns
-
-## Voting Mechanism Design
-
-### Nobel Insights Integration
-
-#### Arrow's Impossibility Theorem
-- No voting system can satisfy all desirable properties simultaneously
-- Trade-offs in democratic design
-
-#### Buchanan on Institutions
-- Rules and constraints shape collective outcomes
-- Constitutional design considerations
-
-#### Hurwicz-Maskin-Myerson on Mechanism Design
-- Incentive compatibility
-- Implementation theory
-- Revelation principle
-
-#### Shapley-Roth on Matching
-- Stable matching algorithms
-- Deferred acceptance mechanism
-- Applications to school choice, organ donation
-
-#### Acemoglu-Johnson-Robinson on Institutions
-- Political institutions and economic outcomes
-- Legitimacy and inclusiveness
-
-### Voting Rules Analyzed
-
-#### Classical Rules
-1. **Plurality**: Most votes wins (strategic voting issues)
-2. **Borda Count**: Ranked preferences, points-based
-3. **Approval Voting**: Approve any number of candidates
-4. **Condorcet Methods**: Pairwise majority comparisons
-
-#### Novel Mechanisms
-1. **Quadratic Voting**: Intensity of preferences through cost function
-2. **Liquid Democracy**: Delegative voting with transitive proxies
-3. **Blockchain Governance**: Decentralized, transparent voting
-4. **AI-Assisted Aggregation**: Machine learning for preference learning
-
-### Field Trip Inspiration
-
-Drawing from the field trip to innovation hubs, we explore:
-- Real-world governance challenges (UN climate negotiations, DAO governance)
-- Blockchain-based voting in decentralized organizations
-- Algorithmic matching in markets
-- Sustainable mechanism design
-
-## Implementation and Evaluation
-
-### Simulation Framework
-
-```python
-from implementations.auction_simulator import AuctionSimulator
-from implementations.voting_system import VotingMechanism
-
-# Auction simulation
-auction = AuctionSimulator(auction_type="vickrey", num_bidders=5)
-results = auction.run(valuations=[10, 20, 30, 40, 50])
-
-# Voting simulation
-voting = VotingMechanism(rule="borda")
-outcome = voting.aggregate_preferences(ballots)
-```
-
-### Evaluation Criteria
-
-#### Auction Mechanisms
-- **Efficiency**: Does highest-value bidder win?
-- **Revenue**: How much revenue does seller generate?
-- **Incentive Compatibility**: Is truthful bidding optimal?
-- **Fairness**: Do all bidders have equal opportunity?
-
-#### Voting Mechanisms
-- **Pareto Efficiency**: No Pareto improvements possible?
-- **Strategy-Proofness**: Is truthful voting optimal?
-- **Anonymity**: Do voter identities not matter?
-- **Monotonicity**: More support never hurts a candidate?
-
-## Case Studies
-
-### 1. Budgeted Vickrey Auction
-- Extend Vickrey auction to budget-constrained bidders
-- Analyze equilibrium with budget constraints
-- Compare to standard Vickrey outcomes
-
-### 2. Blockchain-Based Voting
-- Design transparent, tamper-proof voting mechanism
-- Use smart contracts for vote tallying
-- Ensure privacy and verifiability
-
-### 3. Climate Agreement Mechanism
-- Inspired by field trip observations
-- Design mechanism for international cooperation
-- Balance sovereignty with collective action
-
-## Integration with Other Components
-
-- **Economist**: Theoretical foundations for mechanisms
-- **Computational Scientist**: Implementation and simulation
-- **Behavioral Scientist**: Experimental validation
-- **Visualizations**: Mechanism performance charts
-
-## Key Results
-
-### Auction Analysis
-- Comparison of revenue across formats
-- Evidence of winner's curse
-- Effectiveness of budget constraints
-
-### Voting Analysis
-- Susceptibility to strategic manipulation
-- Trade-offs between different criteria
-- Performance of novel mechanisms
-
-### Mechanism Innovations
-- Proposed improvements to existing mechanisms
-- New hybrid approaches
-- Real-world applicability
-
-## Tools and References
-
-### Implementation
-- **Python**: Simulation and analysis
-- **Solidity**: Smart contracts (for blockchain voting)
-- **oTree**: Experimental implementation
-
-### Theoretical Resources
-- Myerson (1981): Optimal Auction Design
-- Maskin & Tirole (1990): Implementation Theory
-- Roth (2008): Deferred Acceptance Algorithm
-
-### Field Applications
-- FCC Spectrum Auctions
-- Google Ad Auctions
-- School Choice Mechanisms
-- Kidney Exchange Networks
-
----
-
-*For theoretical analysis, see [`../economist/`](../economist/)*  
-*For computational tools, see [`../computational_scientist/`](../computational_scientist/)*  
-*For experimental validation, see [`../behavioral_scientist/`](../behavioral_scientist/)*
+By reorganising the README and regenerating the transcript corpus, the mechanism design module now offers a reproducible foundation for studying institutional choice under quadratic voting.
