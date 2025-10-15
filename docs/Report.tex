@@ -15,6 +15,7 @@
 \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
 
 \begin{document}
+\hypersetup{pageanchor=false}
 \begin{titlepage}
   \centering
   {\LARGE Play to Innovate: An Interdisciplinary Approach from Game Theory to Mechanism Design\\[1.5ex]}
@@ -35,8 +36,12 @@
   \rule{\linewidth}{0.4pt}\\[2ex]
 \end{titlepage}
 
+\pagenumbering{roman}
 \tableofcontents
-\newpage
+\clearpage
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 \section{Abstract}
 We investigate a repeated budget-constrained second-price auction that models digital advertising exchanges observed during the course field trip. Computational experiments compare rational, bounded-optimist, and cautious-conserver bidding heuristics to document winner's-curse deviations and liquidity shocks. The analysis informs an adaptive mechanism that replenishes budgets and introduces transparency dashboards. Building on Week 6 reflections, we design a quadratic-voting-inspired institutional prototype that encodes lessons from UNSC transcripts and participatory budgeting pilots.
@@ -61,12 +66,26 @@ Digital marketplaces frequently ration scarce attention using auctions while con
 
 \subsection{Visual Evidence}
 \begin{itemize}[leftmargin=*]
-  \item Revenue decay visualised in \href{../visualizations/auctions/revenue_by_round.png}{revenue\_by\_round.png}.
-  \item Early-round deviations summarised in \href{../visualizations/auctions/winners_curse_frequency.png}{winners\_curse\_frequency.png}.
+  \item Revenue decay visualised in Figure~\ref{fig:revenue-by-round}.
+  \item Early-round deviations summarised in Figure~\ref{fig:winners-curse-frequency}.
 \end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{../visualizations/auctions/revenue_by_round.png}
+  \caption{Revenue per round across the 40-round repeated auction simulation.}
+  \label{fig:revenue-by-round}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{../visualizations/auctions/winners_curse_frequency.png}
+  \caption{Frequency of winner's-curse events during the simulated auction horizon.}
+  \label{fig:winners-curse-frequency}
+\end{figure}
 These findings mirror PS1 proofs while adding empirical realism through Monte Carlo evidence.
 
-\section{Part 2 -- Mechanism Design \\ \& Auctions}
+\section{Part 2 -- Mechanism Design \texorpdfstring{\\}{ } \& Auctions}
 \subsection{Research Questions}
 \begin{enumerate}[leftmargin=*]
   \item How do bounded-rational heuristics affect revenue and efficiency under budget constraints?
@@ -84,7 +103,7 @@ These findings mirror PS1 proofs while adding empirical realism through Monte Ca
 \begin{itemize}[leftmargin=*]
   \item Higher common-value weight amplifies overbidding, draining optimist budgets by round 30.
   \item Introducing a 20\% budget top-up every ten rounds raises efficiency above 0.6 (experiments documented in code comments).
-  \item Seller revenue stabilises when transparency alerts prompt conservative bidding by the bounded type.
+  \item Seller revenue stabilises once transparency alerts nudge the bounded type toward conservative bids.
 \end{itemize}
 
 \subsection{Design Recommendations}
@@ -107,20 +126,27 @@ Week 6 reflections and UNSC quadratic-voting transcripts exposed legitimacy gaps
 
 \subsection{Expected Properties}
 \begin{itemize}[leftmargin=*]
-  \item Relaxing independence of irrelevant alternatives allows intensity expression while respecting constitutional constraints (Buchanan \\& Tullock).
+  \item Relaxing independence of irrelevant alternatives allows intensity expression while respecting constitutional constraints (Buchanan \& Tullock).
   \item Transparency ledger mitigates Arrow-style legitimacy concerns by documenting trade-offs.
   \item Field trip insights confirm stakeholders value explainability, aligning with SDG 16.
 \end{itemize}
 
 \subsection{Evidence}
 \begin{itemize}[leftmargin=*]
-  \item Heatmap \href{../visualizations/voting/credit_option_heatmap.png}{credit\_option\_heatmap.png} shows high-credit veto clustering, motivating adaptive safeguards.
+  \item Heatmap in Figure~\ref{fig:credit-option-heatmap} shows high-credit veto clustering, motivating adaptive safeguards.
   \item Transcript summary \href{../visualizations/voting/decision_summary.json}{decision\_summary.json} reveals 23 of 53 approvals come from low-credit delegates, highlighting participation asymmetries.
 \end{itemize}
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{../visualizations/voting/credit_option_heatmap.png}
+  \caption{Quadratic-voting credit allocations highlighting veto clustering among high-credit delegates.}
+  \label{fig:credit-option-heatmap}
+\end{figure}
+
 \section{Implementation \& Reproducibility}
 \begin{itemize}[leftmargin=*]
-  \item \textbf{Simulation}: \texttt{python computational\_scientist/scripts/auction\_simulator.py --rounds 40 --seed 42}.
+  \item \textbf{Simulation}: Run the auction simulator via \texttt{python} with flags \texttt{--rounds 40} and \texttt{--seed 42}. The script resides at \path{computational_scientist/scripts/auction_simulator.py}.
   \item \textbf{Figures}: \texttt{python visualizations/generate\_figures.py}.
   \item \textbf{Transcripts}: Stored under \href{../mechanism_design/implementations/llm_transcripts.md}{mechanism\_design/implementations/llm\_transcripts.md}.
   \item \textbf{Behavioural Notes}: \href{../behavioral_scientist/triangulation.md}{behavioral\_scientist/triangulation.md}.
